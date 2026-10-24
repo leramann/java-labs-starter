@@ -15,4 +15,42 @@ public final class CourseToolkit {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
+    // проверяем, является ли число простым 
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int divisor = 2; divisor * divisor <= number; divisor++) {
+            if (number % divisor == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // проверяем, читается ли текст одинаково в обе стороны 
+    public static boolean isPalindrome(String text) {
+        if (text == null) {
+            throw new IllegalArgumentException("Text cannot be null");
+
+        }
+        for (int i = 0; i < text.length() / 2; i++) {
+            if (text.charAt(i) != text.charAt(text.length() - 1 - i )) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // вычисляет среднее арифметическое элементов массива 
+    public static double average(int[] values) {
+        if (values == null || values.length == 0) {
+            throw new IllegalArgumentException("Array cannot be null or empty ");
+        }
+
+        double sum = 0;
+
+        for (int value : values) {
+            sum += value;
+        }
+        return sum / values.length;
+    }
 }
